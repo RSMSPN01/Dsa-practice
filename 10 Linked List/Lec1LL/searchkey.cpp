@@ -1,4 +1,4 @@
-// Total length of the Linked List 
+// Find key in Linked List 
 #include <iostream>
 using namespace std;
 
