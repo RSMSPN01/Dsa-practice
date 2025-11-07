@@ -43,6 +43,16 @@ public:
         }
         return count;
     }
+    bool searchKey(ListNode* head, int key) {
+        ListNode* temp = head;
+        while (temp != NULL) {
+            if (temp->data == key) {
+                return true;
+            }
+            temp = temp->next;
+        }
+        return false;
+    }
 };
 class Solution {
 public:
@@ -58,8 +68,6 @@ int main() {
     ListNode* head = NULL;
     s1.insertAtHead(head, 25);
     s1.insertAtHead(head, 26);
-    s1.insertAtHead(head, 28);
-    s1.insertAtHead(head, 29);
-    cout << (head->totalLength(head));
+    cout << (head->searchKey(head, 26));
     return 0;
 }
