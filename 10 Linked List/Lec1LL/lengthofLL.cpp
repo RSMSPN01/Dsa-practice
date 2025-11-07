@@ -1,4 +1,4 @@
-// Deleting first node in LinkedList
+// Total length of the Linked List 
 #include <iostream>
 using namespace std;
 
@@ -34,6 +34,18 @@ public:
             temp = temp->next;
         }
     }
+    int totalLength(ListNode* head) {
+        int count = 0;
+        ListNode* temp = head;
+        while (temp != NULL) {
+            count++;
+            temp = temp->next;
+        }
+        return count;
+    }
+};
+class Solution {
+public:
     ListNode* insertAtHead(ListNode*& head, int X) {
         ListNode* temp = new ListNode(X);
         temp->next = head;
@@ -41,22 +53,13 @@ public:
         return head;
     }
 };
-class Solution {
-public:
-    ListNode* deleteHead(ListNode*& head) {
-        ListNode* temp = head;
-        head = temp->next;
-        delete temp;
-        return head;
-    }
-};
 int main() {
-    ListNode* head = NULL;
-    head = head->insertAtHead(head, 30);
-    head = head->insertAtHead(head, 20);
     Solution s1;
-    s1.deleteHead(head);
-    s1.deleteHead(head);
+    ListNode* head = NULL;
+    s1.insertAtHead(head, 25);
+    s1.insertAtHead(head, 26);
     head->printList(head);
+    cout << endl;
+    cout << (head->totalLength(head));
     return 0;
 }
