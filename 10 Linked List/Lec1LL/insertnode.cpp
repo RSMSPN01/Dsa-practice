@@ -1,3 +1,4 @@
+// inserting a node into the head
 #include <iostream>
 using namespace std;
 
@@ -17,14 +18,37 @@ using namespace std;
 //         next = next1;
 //     }
 // };
-
+class ListNode {
+public:
+    int data;
+    ListNode* next;
+    ListNode(int data) {
+        this->data = data;
+        next = NULL;
+    }
+    void printList(ListNode* head) {
+        ListNode* temp = head;
+        while (temp != NULL)
+        {
+            cout << temp->data << " ";
+            temp = temp->next;
+        }
+    }
+};
 class Solution {
 public:
     ListNode* insertAtHead(ListNode*& head, int X) {
-
+        ListNode* temp = new ListNode(X);
+        temp->next = head;
+        head = temp;
+        return head;
     }
 };
 int main() {
-
+    Solution s1;
+    ListNode* head = NULL;
+    s1.insertAtHead(head, 25);
+    s1.insertAtHead(head, 26);
+    head->printList(head);
     return 0;
 }
