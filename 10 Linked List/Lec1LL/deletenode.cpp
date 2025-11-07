@@ -1,4 +1,5 @@
 // Deleting first node in LinkedList
+// Medimum level Code is submitted in the Leetcode
 #include <iostream>
 using namespace std;
 
