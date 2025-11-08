@@ -1,5 +1,7 @@
 // These all are the basics for the DLL
 #include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 class Node {
 public:
@@ -44,6 +46,23 @@ public:
         delete temp;
         return head;
     }
+    void reverseNode(Node* head) {
+        Node* temp = head;
+        vector<int>v;
+        while (temp != NULL)
+        {
+            v.push_back(temp->data); // stored into the vector
+            temp = temp->next;
+        }
+        reverse(v.begin(), v.end());
+        int i = 0;
+        while (temp != NULL)
+        {
+
+            temp->data = v[i++];
+            temp = temp->next;
+        }
+    }
 };
 int main() {
     Node* head = new Node(10);
@@ -55,6 +74,7 @@ int main() {
     temp1->prev = temp;
     head = head->insertHead(head, 5);
     head = head->deletefNode(head);
+    head->reverseNode(head);
     head->print(head);
     return 0;
 }
