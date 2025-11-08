@@ -46,6 +46,8 @@ public:
         delete temp;
         return head;
     }
+    // Reverse is done using extra space (vector) so the space complexity = O(n).
+    // and we have traverse the LL twice so overall time Complexity is also = O(n).
     void reverseNode(Node* head) {
         Node* temp = head;
         vector<int>v;
@@ -56,11 +58,12 @@ public:
         }
         reverse(v.begin(), v.end());
         int i = 0;
-        while (temp != NULL)
+        Node* temp2 = head;
+        while (temp2 != NULL)
         {
 
-            temp->data = v[i++];
-            temp = temp->next;
+            temp2->data = v[i++];
+            temp2 = temp2->next;
         }
     }
 };
