@@ -1,3 +1,4 @@
+// These all are the basics for the DLL
 #include <iostream>
 using namespace std;
 class Node {
