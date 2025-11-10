@@ -49,21 +49,42 @@ public:
     // Reverse is done using extra space (vector) so the space complexity = O(n).
     // and we have traverse the LL twice so overall time Complexity is also = O(n).
     void reverseNode(Node* head) {
+        // using vector to reverse the LL
+        // Node* temp = head;
+        // vector<int>v;
+        // while (temp != NULL)
+        // {
+        //     v.push_back(temp->data); // stored into the vector
+        //     temp = temp->next;
+        // }
+        // reverse(v.begin(), v.end());
+        // int i = 0;
+        // Node* temp2 = head;
+        // while (temp2 != NULL)
+        // {
+
+        //     temp2->data = v[i++];
+        //     temp2 = temp2->next;
+        // }
+
+        // using two pointer approach to solve the problem
+        // but still we don't have the tail so we did two traversals of the linked List.
         Node* temp = head;
-        vector<int>v;
-        while (temp != NULL)
+        int count = 0;
+        while (temp->next != NULL)
         {
-            v.push_back(temp->data); // stored into the vector
+            count++;
             temp = temp->next;
         }
-        reverse(v.begin(), v.end());
-        int i = 0;
-        Node* temp2 = head;
-        while (temp2 != NULL)
+        Node* temp1 = head;
+        while (count / 2)
         {
-
-            temp2->data = v[i++];
-            temp2 = temp2->next;
+            int tempValue = temp->data;
+            temp->data = temp1->data;
+            temp1->data = tempValue;
+            temp1 = temp1->next;
+            temp = temp->prev;
+            count /= 2;
         }
     }
 };
@@ -75,6 +96,7 @@ int main() {
     temp->prev = head;
     temp->next = temp1;
     temp1->prev = temp;
+    head = head->insertHead(head, 5);
     head = head->insertHead(head, 5);
     head = head->deletefNode(head);
     head->reverseNode(head);
