@@ -69,23 +69,27 @@ public:
 
         // using two pointer approach to solve the problem
         // but still we don't have the tail so we did two traversals of the linked List.
-        Node* temp = head;
-        int count = 0;
-        while (temp->next != NULL)
-        {
-            count++;
-            temp = temp->next;
-        }
-        Node* temp1 = head;
-        while (count / 2)
-        {
-            int tempValue = temp->data;
-            temp->data = temp1->data;
-            temp1->data = tempValue;
-            temp1 = temp1->next;
-            temp = temp->prev;
-            count /= 2;
-        }
+        // Node* temp = head;
+        // int count = 0;
+        // while (temp->next != NULL)
+        // {
+        //     count++;
+        //     temp = temp->next;
+        // }
+        // Node* temp1 = head;
+        // while (count / 2)
+        // {
+        //     int tempValue = temp->data;
+        //     temp->data = temp1->data;
+        //     temp1->data = tempValue;
+        //     temp1 = temp1->next;
+        //     temp = temp->prev;
+        //     count /= 2;
+        // }
+
+        // The most efficient way to solve the problem is with swapping
+        // I will solve that in a different file to be get remembered.
+
     }
 };
 int main() {
