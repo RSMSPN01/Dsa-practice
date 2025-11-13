@@ -153,9 +153,9 @@ public:
 };
 int main() {
     Node* head = NULL;
-    head = head->insertBegin(head, 5);
-    head = head->insertBegin(head, 4);
-    head = head->insertBegin(head, 3);
+    head = head->insertBegin(head, 1);
+    head = head->insertBegin(head, 2);
+    // head = head->insertBegin(head, 3);
     head = head->insertBegin(head, 2);
     head = head->insertBegin(head, 1);
     cout << (head->checkPalindrome(head));
