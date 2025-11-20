@@ -26,11 +26,10 @@ public:
         if (head == nullptr) {
             return 1; // first carry is sent from here.
         }
-        Node* temp = head; // make sure to store the current flow of head other wise the you will miss it.
         int carry = addOnefun(head->next);
-        int val = temp->data + carry;
-        temp->data = val % 10;
-        return (val / 10);
+        int val = head->data + carry;
+        head->data = val % 10; // this is unnecassary becs if val is >10 it means we have to directly store 10 in it not other no.
+        return (val / 10); // similary here you can return only 1 and 0 rather then this because only 1 or 0 can be a valid carry.
     }
     Node* addOne(Node* head) {
         int carry = addOnefun(head);
