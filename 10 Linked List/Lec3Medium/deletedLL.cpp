@@ -56,17 +56,24 @@ public:
             // check for the head first if same them remove that seprately
             if (temp->data == target && temp == head) {
                 // it means pointing to head node
-                // handle memory leak and prev too
+                Node* temp2 = temp;
                 head = head->next;
+                temp = temp->next;
+                delete temp2;
             } else if (temp->data == target && temp->next == nullptr) {
                 // it means we are at the last node of ll 
                 // here memory leak in not handled
+                Node* temp2 = temp;
                 temp->prev->next = nullptr;
+                temp = temp->next;
+                delete temp2;
             } else if (temp->data == target) {
                 // handle memory leak
                 temp->prev->next = temp->next;
+                temp = temp->next;
+            } else {
+                temp = temp->next;
             }
-            temp = temp->next;
         }
         return head;
     }
