@@ -1,1 +1,6 @@
-    // head = head->insertBegin(head, 9);
+ // for (int i = 0;i < x.size();i++) {
+    //     for (int j = 0;j < x[i].size();j++) {
+    //         cout << x[i][j] << " ";
+    //     }
+    //     cout << endl;
+    // }
