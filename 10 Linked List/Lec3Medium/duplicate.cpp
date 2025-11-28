@@ -104,6 +104,34 @@ public:
         window->next = nullptr;
         return head;
     }
+    // this is the most efficient way to solve the problem by only using one pointer at a time and by using only one 
+    // while loop the code is given by chatGpt itself it is easy to understand but works is the same time and space 
+    // complexity of the above code.
+    // Node* removeDuplicates(Node* head) {
+    //     if (!head) return head;
+
+    //     Node* curr = head;
+
+    //     while (curr && curr->next) {
+    //         if (curr->data == curr->next->data) {
+    //             // Duplicate found
+    //             Node* duplicate = curr->next;
+
+    //             // Connect curr to duplicate->next
+    //             curr->next = duplicate->next;
+    //             if (duplicate->next) {
+    //                 duplicate->next->prev = curr;
+    //             }
+
+    //             delete duplicate; // free memory safely
+    //         } else {
+    //             curr = curr->next; // move only when no duplicate
+    //         }
+    //     }
+
+    //     return head;
+    // }
+
 };
 int main() {
     Node* head = new Node(7);
