@@ -1,26 +1,28 @@
 #include <iostream>
 using namespace std;
+// T.C = O(n+k) and S.C = O(n).
 void countingSort(int arr[], int n) {
     int k = arr[0];
+    // First thing is to find the maximum value in the array to make the k size array.
     for (int i = 1; i < n; i++)
     {
         if (arr[i] > k)
         {
-            k = arr[i];
+            k = arr[i]; // maximum element is stored now.
         }
     }
-    k = k + 1;
-    int freq[k] = { 0 };
+    k = k + 1; // To handle the size well we add one extra just in case.
+    int freq[k] = { 0 }; // freq array is created to store the freq of size k.
     for (int i = 0; i < n; i++)
     {
-        freq[arr[i]]++;
+        freq[arr[i]]++; // we count all the frequencies of the values present in the array.
     }
     for (int i = 1; i < k; i++)
     {
-        freq[i] += freq[i - 1];
+        freq[i] += freq[i - 1]; // add the previous frequency in the current frequency.
     }
-    int count[n];
-    for (int i = n - 1; i >= 0;i--)
+    int count[n]; // create another array to store the final result.
+    for (int i = n - 1; i >= 0;i--) // starting from the reverse becuase it makes the algorithm stable in sorting.
     {
         count[freq[arr[i]] - 1] = arr[i];
         freq[arr[i]]--;
