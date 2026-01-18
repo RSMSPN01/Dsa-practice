@@ -1,6 +1,9 @@
 // Approach : Naive way is by using linear search method but we can do faster by using bs search
 // This is similar to the finding root of the number just a few twicks and we are good to go.
 
+// The pow() can also give larger values so rather then using this we can also do this thing man-
+// ually to prevent overflow in some cases with larger values. 
+
 #include <iostream>
 #include <math.h>
 using namespace std;
