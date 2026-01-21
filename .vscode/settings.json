@@ -2,5 +2,13 @@
   "files.associations": {
     "iostream": "cpp",
     "new": "cpp"
-  }
+  },
+
+  "C_Cpp.default.compilerPath": "C:/msys64/mingw64/bin/g++.exe",
+
+  "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+  "C_Cpp.codeAnalysis.clangTidy.ignoreSystemHeaders": true,
+  "C_Cpp.codeAnalysis.runAutomatically": true,
+
+  "C_Cpp.intelliSenseEngine": "default"
 }
