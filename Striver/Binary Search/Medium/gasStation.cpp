@@ -20,7 +20,7 @@
 #include <vector>
 
 using namespace std;
-bool canPlace(int mid, vector<int>& nums, int k) {
+bool canPlace(int mid, vector<int> &nums, int k) {
     int count = 0, lastCount = 0;
     for (int i = 1; i < nums.size(); i++) {
         if (nums[i] - lastCount >= mid) {
@@ -34,7 +34,7 @@ bool canPlace(int mid, vector<int>& nums, int k) {
     }
     return false;
 }
-long double minimiseMaxDistance(vector<int>& nums, int k) {
+long double minimiseMaxDistance(vector<int> &nums, int k) {
     int n = nums.size();
     // handle edge cases
 
@@ -58,7 +58,7 @@ long double minimiseMaxDistance(vector<int>& nums, int k) {
     return high;
 }
 int main() {
-    vector<int> nums = { 1, 5 };
+    vector<int> nums = {1, 5};
     int k = 1;
     cout << minimiseMaxDistance(nums, k);
     return 0;
