@@ -3,10 +3,4 @@
     "iostream": "cpp",
     "new": "cpp"
   },
-
-  "C_Cpp.default.compilerPath": "C:/msys64/mingw64/bin/g++.exe",
-
-  "C_Cpp.codeAnalysis.clangTidy.enabled": false,
-
-  "C_Cpp.intelliSenseEngine": "default"
 }
