@@ -10,7 +10,8 @@
 
 // There is also a little wierd thing in question, the approach i am going to
 // write is that we can only put one gas station in between the two consecutive
-// stations After thinking on it i find out i am wrong, if we will start putting
+// stations
+// After thinking on it i find out i am wrong, if we will start putting
 // one or even more gas station in between then, we will not be able to find the
 // max as our output bcs the value is just going to get down and even down,
 // instead putting more in between directly put them in the end please think
@@ -39,15 +40,15 @@ long double minimiseMaxDistance(vector<int> &nums, int k) {
   int n = nums.size();
   // handle edge cases
 
-  int minAdjacentDistance = nums[n - 1];
-  for (int i = 1; i < nums.size(); i++) {
-    if (nums[i] - nums[i - 1] < minAdjacentDistance) {
-      minAdjacentDistance = nums[i] - nums[i - 1];
-      // this is going to be our starting point
-    }
-  }
-  long double low = minAdjacentDistance, high = nums[n - 1] - nums[0],
-              mid = 0.0;
+  int minAdjacentDistance = 1;
+  // for (int i = 1; i < nums.size(); i++) {
+  //   if (nums[i] - nums[i - 1] < minAdjacentDistance) {
+  //     minAdjacentDistance = nums[i] - nums[i - 1];
+  //     // this is going to be our starting point
+  //   }
+  // }
+  long double low = minAdjacentDistance, high = nums[n - 1] - nums[0];
+  long double mid = 0.0;
   while (low <= high) {
     mid = low + (high - low) / 2.0;
     if (canPlace(mid, nums, k)) {
