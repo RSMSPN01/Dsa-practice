@@ -71,7 +71,8 @@ vector<int> findMissingRepeatingNumbers(vector<int> &nums) {
   }
   int setBit = 0;
   //  now check which bit is set so based on that we can divide the array
-  // there is a trick to directly get the first set bit which is
+  // there is a trick to directly get the bit mask we don't need to explicitly
+  // check again and again
   setBit = ans & ~(ans - 1);
   // while (ans > 0) {
   //   if (ans & 1) {
@@ -85,7 +86,7 @@ vector<int> findMissingRepeatingNumbers(vector<int> &nums) {
   int firstEle = 0;
   int scndEle = 0;
   for (int i = 0; i < n; i++) {
-    if (nums[i] & (1 << setBit)) {
+    if (nums[i] & setBit) {
       firstEle ^= nums[i];
     } else {
       scndEle ^= nums[i];
@@ -93,7 +94,7 @@ vector<int> findMissingRepeatingNumbers(vector<int> &nums) {
     // this is one more extra step bcs when we also do xor from 1 to n
     // the same numbers will get canceled out with each other and final result
     // will be there.
-    if (i + 1 & (1 << setBit)) {
+    if (i + 1 & setBit) {
       firstEle ^= i + 1;
     } else {
       scndEle ^= i + 1;
