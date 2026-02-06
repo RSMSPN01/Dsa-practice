@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "C/C++: g++.exe build and debug active file",
+      "name": "Debug C++",
       "type": "cppdbg",
       "request": "launch",
       "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
@@ -10,10 +10,10 @@
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
       "environment": [],
-      "externalConsole": true,
+      "externalConsole": false,
       "MIMode": "gdb",
-      "miDebuggerPath": "C:/msys64/mingw64/bin/gdb.exe",
-      "preLaunchTask": "C/C++: g++.exe build active file"
+      "miDebuggerPath": "C:\\msys64\\mingw64\\bin\\gdb.exe",
+      "preLaunchTask": "build cpp"
     }
   ]
 }
