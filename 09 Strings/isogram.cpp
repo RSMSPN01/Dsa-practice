@@ -1,3 +1,4 @@
+// please note that this will only check the map from one way
 #include <iostream>
 using namespace std;
 bool isogramOrNot(string &s) {
