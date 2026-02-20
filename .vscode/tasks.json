@@ -12,7 +12,7 @@
         "-Wshadow",
         "-Wconversion",
         "-Wsign-conversion",
-        "-O2",
+        "-O0",
         "-g",
         "${file}",
         "-o",
