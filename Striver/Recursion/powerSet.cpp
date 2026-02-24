@@ -4,11 +4,11 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> powerSet(vector<int> &nums, vector<int> &temp, int i,
-                             vector<vector<int>> &result) {
+vector<vector<int>> powerSet(vector<int> &nums, vector<int> &temp, int i, vector<vector<int>> &result) {
   if (i == nums.size()) {
     // base case
     result.push_back(temp);
+    return {};
   }
   // include it first
   temp.push_back(nums[i]);
@@ -31,6 +31,7 @@ int main() {
     for (int j = 0; j < x[i].size(); j++) {
       cout << x[i][j] << " ";
     }
+    cout << endl;
   }
   return 0;
 }
