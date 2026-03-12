@@ -3,7 +3,7 @@
 
 using namespace std;
 bool canDivide(int n) {
-  if (n < 2) {
+  if (n <= 2) {
     return false;
   }
   if (n % 2 == 0) {
