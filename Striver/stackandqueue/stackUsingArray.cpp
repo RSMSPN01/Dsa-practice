@@ -27,7 +27,7 @@ public:
   }
 
   int tops() {
-    if (!isEmpty() && !isFull())
+    if (!isEmpty())
       return array[top];
   }
 

@@ -4,62 +4,62 @@ class queueImplement {
   int start = -1;
   int end = -1;
   int array[5] = {0};
+  int currSize = 0;
+  int maxSize = 5;
 
 public:
   void push(int x) {
-    if (!isFull()) {
-      if (start == -1 && end == -1) {
-        start = (start % 4) + 1;
-        end = (end % 4) + 1;
-        array[start] = x;
+    if (!(currSize == maxSize)) {
+      if (currSize == 0) {
+        start++;
+        end++;
       } else {
-        end = (end % 4) + 1;
-        array[end] = x;
+        end = (end + 1) % 5;
       }
+      array[end] = x;
+      currSize++;
     } else {
-      cout << "Queue is Full" << endl;
+      cout << "Stack Is full!";
     }
   }
-
-  void pop() {
+  int pop() {
+    int popped = -1;
     if (!isEmpty()) {
+      popped = array[start];
       array[start] = 0;
-      start = (start % 4) + 1;
+      if (start == end) {
+        start = -1;
+        end = -1;
+      } else {
+        start = (start + 1) % 5;
+      }
+      currSize--;
     } else {
-      cout << "Queue is Empty" << endl;
+      cout << "Stack is empty!";
     }
+    return popped;
   }
 
-  // int peek() {}
-  int front() {
+  int peek() {
     if (!isEmpty()) {
       return array[start];
     }
+    return -1;
   }
-  int back() {
-    if (!isEmpty()) {
-      return array[end];
-    }
-  }
+
   bool isEmpty() {
-    if (start == -1 && end == -1) {
+    if (currSize == 0) {
       return true;
     }
     return false;
   }
-  bool isFull() {
-    // just for now i am checking based on values
-    for (int i = 0; i < 5; i++) {
-      if (array[i] == 0) {
-        return false;
-      }
-    }
-    return true;
-  }
   void print() {
-    while (start != end) {
-      cout << array[start];
-      start = (start % 4) + 1;
+    // while (start != end) {
+    //   cout << array[start];
+    //   start = (start % 4) + 1;
+    // }
+    for (int i = 0; i < 5; i++) {
+      cout << array[i] << " ";
     }
   }
 };
@@ -68,6 +68,11 @@ int main() {
   q1.push(1);
   q1.push(2);
   q1.push(3);
+  q1.push(4);
+  q1.push(5);
+  cout << q1.pop() << endl;
+  cout << q1.pop() << endl;
+  cout << q1.pop() << endl;
   q1.print();
   return 0;
 }
