@@ -10,14 +10,6 @@
 #include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
-int pres(char c) {
-  if (c == '^') {
-    return 3;
-  } else if (c == '/' || c == '*') {
-    return 2;
-  }
-  return 1;
-}
 string prefixToPostfix(string &s) {
   string result;
   // stack<char> st;
