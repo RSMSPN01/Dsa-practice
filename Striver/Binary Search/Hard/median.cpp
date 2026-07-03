@@ -22,6 +22,7 @@
 // to the row*col/2 times instead of finding left
 
 #include <algorithm>
+#include <bits/stdc++.h>s
 #include <iostream>
 #include <vector>
 

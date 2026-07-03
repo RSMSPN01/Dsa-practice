@@ -23,56 +23,46 @@
 // think for the valid function how i am going to write that lets see what can i
 // learn from video and try to implement that here.
 
-#include <algorithm>
+#include <bits/stdc++.h>
 #include <iostream>
-#include <vector>
 
 using namespace std;
-bool canPlace(int mid, vector<int> &nums, int k) {
-  // This approach which i have write here, there is no single way this could
-  // work it will always return the ans as false idk why i have even written
-  // this
-
-  // int count = 0, lastCount = 0;
-  // for (int i = 1; i < nums.size(); i++) {
-  //   if (nums[i] - lastCount >= mid) {
-  //     count++;
-  //     lastCount = i;
-  //   }
-  //   // can use early stopping but hardly makes the code faster
-  // }
-  // if (count >= k) {
-  //   return true;
-  // }
-  // return false;
+int canPlace(long double dist, vector<int> &nums) {
+  // this will checks how many gas stations can pe placed in between
+  int totalNoOfStations = 0;
+  for (int i = 1; i < nums.size(); i++) {
+    // This ceil function is costly to call each time you can simply convert
+    // this into mathematical terms to reduce the T.C
+    totalNoOfStations += ceil((nums[i] - nums[i - 1]) / dist) - 1;
+  }
+  return totalNoOfStations;
 }
 long double minimiseMaxDistance(vector<int> &nums, int k) {
   int n = nums.size();
-  // handle edge cases
+  long double low = 0, high = 0;
 
-  int minAdjacentDistance = 1;
-  // for (int i = 1; i < nums.size(); i++) {
-  //   if (nums[i] - nums[i - 1] < minAdjacentDistance) {
-  //     minAdjacentDistance = nums[i] - nums[i - 1];
-  //     // this is going to be our starting point
-  //   }
-  // }
-  long double low = minAdjacentDistance, high = nums[n - 1] - nums[0];
-  long double mid = 0.0;
-  while (low <= high) {
-    mid = low + (high - low) / 2.0;
-    if (canPlace(mid, nums, k)) {
-      // search for the max
-      low = mid + 1;
-    } else {
-      high = mid - 1;
-    }
+  // Determine max initial distance between stations
+  for (int i = 0; i < n - 1; i++) {
+    high = max(high, (long double)(nums[i + 1] - nums[i]));
   }
+
+  long double diff = 1e-6;
+
+  // Binary search to find minimum possible maximum distance
+  while (high - low > diff) {
+    long double mid = (low + high) / 2.0;
+    int cnt = canPlace(mid, nums);
+    if (cnt > k)
+      low = mid;
+    else
+      high = mid;
+  }
+
   return high;
 }
 int main() {
   vector<int> nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
   int k = 10;
-  cout << minimiseMaxDistance(nums, k);
+  cout << minimiseMaxDistance(nums, k) << endl;
   return 0;
 }
